@@ -1,12 +1,17 @@
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
+import ejs from 'ejs';
+
 
 const app = express();
 const expressServer = http.createServer(app);
 
 app.use(express.json());
 app.use(express.static('public'));
+app.set('views','./public');
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'html');
 
 const io = new Server(expressServer);
 
@@ -24,7 +29,7 @@ io.on('connect', function (socket) {
 
 })
 
-app.get('/', (req, res, next) => {
+app.get('/ok', (req, res, next) => {
     res.render('index.html');
 })
 
