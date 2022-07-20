@@ -32,6 +32,9 @@ io.on('connect', function (socket) {
 app.get('/', (req, res, next) => {
     res.render('index.html');
 })
+app.get('/time/', (req, res, next) => {
+    res.render('index.html');
+})
 
 expressServer.listen(8080, () => {
     console.log('server is listening on port 8080...')
