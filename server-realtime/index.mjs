@@ -29,7 +29,7 @@ io.on('connect', function (socket) {
 
 })
 
-app.get('/ok', (req, res, next) => {
+app.get('/', (req, res, next) => {
     res.render('index.html');
 })
 
