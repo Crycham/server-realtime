@@ -29,9 +29,7 @@ io.on('connect', function (socket) {
 
 })
 
-app.get('/', (req, res, next) => {
-    res.render('index.html');
-})
+
 app.get('/rt-iaas/', (req, res, next) => {
     res.render('index.html');
 })
