@@ -8,7 +8,7 @@ const app = express();
 const expressServer = http.createServer(app);
 
 app.use(express.json());
-app.use(express.static('public'));
+//app.use(express.static('public'));
 app.set('views','./public');
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
