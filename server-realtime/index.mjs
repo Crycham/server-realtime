@@ -35,7 +35,7 @@ app.get('/rt-iaas/', (req, res, next) => {
     res.render('index.html');
 })
 
-app.get('/stop/', (req, res, next) => {
+app.get('/rt-iaas/stop/', (req, res, next) => {
     console.log("Exiting NodeJS server");
     process.exit();
 })
