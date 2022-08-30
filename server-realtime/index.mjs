@@ -7,6 +7,7 @@ import ejs from 'ejs';
 const app = express();
 const expressServer = http.createServer(app);
 
+
 app.use(express.json());
 //app.use(express.static('public'));
 app.set('views','./public');
@@ -32,6 +33,11 @@ io.on('connect', function (socket) {
 
 app.get('/rt-iaas/', (req, res, next) => {
     res.render('index.html');
+})
+
+app.get('/stop/', (req, res, next) => {
+    console.log("Exiting NodeJS server");
+    process.exit();
 })
 
 expressServer.listen(8080, () => {
