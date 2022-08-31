@@ -1,6 +1,6 @@
 var http = require('http');
 
-    
+const { exec } = require("child_process"); 
 
 var app = http.createServer(function(req,res){
     const url = req.url;
@@ -27,8 +27,20 @@ var app = http.createServer(function(req,res){
     let seconds = date_ob.getSeconds();
     let test = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
     if (url === "/rt-iaas-stop/") {
-        console.log("Exiting NodeJS server");
-        process.exit();
+        
+
+        exec("pkill node &", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                return;
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+        //process.exit(1);
     }
     if (url === "/rt-iaas/") {
         res.setHeader('Content-Type', 'application/json');
