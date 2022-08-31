@@ -29,7 +29,7 @@ var app = http.createServer(function(req,res){
     if (url === "/rt-iaas-stop/") {
         
 
-        exec("pkill node &", (error, stdout, stderr) => {
+        exec("pm2 stop index.js ", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
