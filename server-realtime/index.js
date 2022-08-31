@@ -3,6 +3,8 @@ var http = require('http');
     
 
 var app = http.createServer(function(req,res){
+    const url = req.url;
+
     // TODO implement
     let date_ob = new Date();
     // current date
@@ -24,7 +26,14 @@ var app = http.createServer(function(req,res){
     // current seconds
     let seconds = date_ob.getSeconds();
     let test = year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify(test));
+    if (url === "/rt-iaas-stop/") {
+        console.log("Exiting NodeJS server");
+        process.exit();
+    }
+    if (url === "/rt-iaas/") {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(test));
+    }
+    
 });
 app.listen(8080);
