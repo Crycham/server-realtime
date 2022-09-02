@@ -42,11 +42,11 @@ var app = http.createServer(function(req,res){
         });
         //process.exit(1);
     }
-    if (url === "/rt-iaas/realtime1") {
+    if (url === "/rt-iaas/realtime1/") {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(test));
     }
-    if (url === "/rt-iaas/realtime2") {
+    if (url === "/rt-iaas/realtime2/") {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(test));
     }
